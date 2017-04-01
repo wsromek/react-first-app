@@ -8,5 +8,7 @@ This repository has been prepared to utilize Travis CI to deploy code to Heroku 
 
 # Basic Commands
 
+* `npm test` - run tests 
 * `npm run dev` - runs webpack development mode with watch flag
 * `npm run build` - builds application
+

@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BasicComponent increments counter on click  1`] = `
+<div>
+  Likes : 
+  <span>
+    0
+  </span>
+  <div>
+    <button
+      onClick={[Function]}
+    >
+      Like Me
+    </button>
+  </div>
+</div>
+`;
+
+exports[`BasicComponent increments counter on click  2`] = `
+<div>
+  Likes : 
+  <span>
+    1
+  </span>
+  <div>
+    <button
+      onClick={[Function]}
+    >
+      Like Me
+    </button>
+  </div>
+</div>
+`;
+
+exports[`BasicComponent increments counter on click  3`] = `
+<div>
+  Likes : 
+  <span>
+    1
+  </span>
+  <div>
+    <button
+      onClick={[Function]}
+    >
+      Like Me
+    </button>
+  </div>
+</div>
+`;
