@@ -1,0 +1,19 @@
+sudo: false
+
+language: node_js
+
+cache:
+  directories:
+  - node_modules
+
+node_js:
+- '7'
+
+deploy:
+  - provider: heroku
+    app:
+      master: react-first-app
+    api_key:
+      secure: fRam1Nd5tPFYaZ4PHvyZNXwz+OGEhvg8RMvFpxcKzrBv96nOnx7jENeFN0A8GQGH4w/neh8ImbwyRYgV/qCBmpETXgSFF2ZMdkHe/DE4NSKit4VOCo9L9PnHfmGLlbM2ibWG3wMslqnClQCUoyrL76UwP1CgpzWEClkV/WBicxR0vHNsnyHZrlwnfsjp758l0HoQ/0qG9ef3XnP996/HfgSmHC91eEg/OSp2do3q8ciN75tDotckC/yauPlwILEf77adEquVFVjqtESzHq8h2PdGBndaxboITcRg68uAVlzz098VLmP62v6RhCG4GmbEf+7a+msuK+ad58KEJYkMcGF2DCZhAC7WaOfW2yJ4HJvJ/7QCwhJy5EV0jbYQreEgIKGHYhN7h3Z188V9KlSZLti382suVb9GF6so7tYh4+9EFUobzGT602jvs25nv6O/aFtZUm/x1eXj9SCMWh6D4P26L/t2PYeOY+rnN9w+X75J1r/W20m+pPEaSxFFvMZRM4zIedc23OUTkOUQ2n7JtJ3d1/SNXjDrt48MZO1wJvXlYT6PtU4QSEeiRHAYXG9SUC//YyOVDLvfnxelRplDyfh8Mvu+hmmgKfuihdmxCtvhVL3BruPfy1NqaWPz7CaSht2S5KIXrsM1Ri7ysbx1a1REJnOQrs+HUE1BWaY0OS0=
+
+
