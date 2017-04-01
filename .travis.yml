@@ -9,8 +9,13 @@ cache:
 node_js:
 - '7'
 
+install:
+  - npm install
+  - npm run build
+
 deploy:
   - provider: heroku
+    skip_cleanup: true
     app:
       master: react-first-app
     api_key:
