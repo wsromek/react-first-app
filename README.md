@@ -4,6 +4,8 @@
 
 This repository has been created as an aid in the process of learning React.js and its development stack.
 
+It is also meant to embrace good practices such as automatization, analysis of code quality, CI etc.
+
 # Integration and deployment
 
 This repository has been prepared to utilize Travis CI to deploy code to Heroku app.
@@ -13,6 +15,7 @@ This repository has been prepared to utilize Travis CI to deploy code to Heroku 
 * `npm test` - run tests 
 * `npm run dev` - runs webpack development mode with watch flag
 * `npm run build` - builds application
+* `npm run quality` - run es-lint
 
 
 # TODO
