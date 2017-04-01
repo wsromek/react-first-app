@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/wsromek/react-first-app.svg?branch=master)](https://travis-ci.org/wsromek/react-first-app)
+
 # My first React application
 
 This repository has been created as an aid in the process of learning React.js and its development stack.
