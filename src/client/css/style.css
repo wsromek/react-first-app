@@ -1,0 +1,10 @@
+/**TODO: switch to SCSS */
+
+.completed {
+    color: red;
+    text-decoration: line-through;
+}
+
+.active {
+    color: green;
+}

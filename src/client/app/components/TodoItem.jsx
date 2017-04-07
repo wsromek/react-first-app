@@ -1,20 +1,11 @@
 import React from 'react';
 
 class TodoItem extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: props.name
-        };
-    }
-
     render() {
         return (
-            <div>{this.props.name}</div>
+            <span className={this.props.item.status}>{this.props.item.name}</span>
         );
     }
-
 }
 
 export default TodoItem;

@@ -2,7 +2,8 @@
     "env": {
         "browser": true,
         "es6": true,
-        "node": true
+        "node": true,
+        "jest": true
     },
     "extends": "eslint:recommended",
     "parserOptions": {
@@ -33,8 +34,5 @@
         ],
         "react/jsx-uses-vars": 2,
         "react/jsx-uses-react": 2
-    },
-    "globals": {
-        "React": true
     }
 }

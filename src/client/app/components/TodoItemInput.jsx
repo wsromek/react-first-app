@@ -4,7 +4,7 @@ class TodoItemInput extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            inputValue: ''
+            inputValue: props.value
         };
 
         this.updateInputValue = this.updateInputValue.bind(this);
@@ -29,7 +29,7 @@ class TodoItemInput extends React.Component {
                        value={this.props.value}
                        onChange={this.updateInputValue}
                 />
-                <button id="todo-submit"
+                <button id="todo-submit-button"
                         onClick={this.onTodoSubmit}
                 >Submit</button>
             </div>

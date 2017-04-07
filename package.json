@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/jest && exit 0",
+    "test": "./node_modules/.bin/jest",
     "dev": "./node_modules/.bin/webpack -d --watch",
     "build": "./node_modules/.bin/webpack -p",
-    "quality" : "./node_modules/.bin/eslint src/client/app/**/*"
+    "quality": "./node_modules/.bin/eslint src/client/app/**/* test/**/*"
   },
   "author": "A simple application to familiarize myself with React and its development stack",
   "license": "ISC",
@@ -20,10 +20,13 @@
     "babel-loader": "6.4.1",
     "babel-preset-es2015": "6.24.0",
     "babel-preset-react": "6.23.0",
+    "enzyme": "2.8.0",
     "eslint": "3.19.0",
     "eslint-plugin-react": "6.10.3",
     "jest": "19.0.2",
+    "jest-enzyme": "3.0.0",
     "react": "15.4.2",
+    "react-addons-test-utils": "15.4.2",
     "react-dom": "15.4.2",
     "react-test-renderer": "15.4.2",
     "webpack": "2.3.2"
