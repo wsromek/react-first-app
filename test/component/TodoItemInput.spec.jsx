@@ -2,8 +2,8 @@ import React from 'react';
 import TodoItemInput from '../../src/client/app/components/TodoItemInput.jsx';
 import {shallow, mount} from 'enzyme';
 
-describe('TodoItemInput component', function () {
-    it('renders input filed', () => {
+describe('TodoItemInput component', () => {
+    it('renders input field', () => {
         let component = shallow(<TodoItemInput />);
         expect(component.find('input#todo-submit-input').length).toBe(1);
     });
@@ -19,11 +19,12 @@ describe('TodoItemInput component', function () {
         expect(component.find('input#todo-submit-input').props().value).toBe('test-value');
     });
 
-    it('should be selectable by class "todo-submit-wrapper"', () => {
-        expect(shallow(<TodoItemInput />).is('.todo-submit-wrapper')).toBe(true);
-    });
+    it('calls onTodoSubmit when submit button is clicked', () => {
+        let onTodoSubmitMock = jest.fn();
+        let component = mount(<TodoItemInput onSubmit={onTodoSubmitMock} value="test-value"/>);
 
-    it('should mount in a full DOM', () => {
-        expect(mount(<TodoItemInput />).find('.todo-submit-wrapper').length).toBe(1);
+        component.find('button').simulate('click');
+
+        expect(onTodoSubmitMock).toHaveBeenCalledWith('test-value');
     });
 });

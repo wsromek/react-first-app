@@ -15,15 +15,19 @@ This repository has been prepared to utilize Travis CI to deploy code to Heroku 
 * `npm test` - run tests 
 * `npm run dev` - runs webpack development mode with watch flag
 * `npm run build` - builds application
-* `npm run quality` - run es-lint
+* `npm run lint` - run es-lint
+* `npm run quality` - run tests and es-lint
 
 
 # TODO
  * ~~implement todo app logic~~
-    + provide mechanism to mark items as done
-    + provide mechanism to remove items
+    + ~~provide mechanism to mark items as done~~
+    + ~~provide mechanism to remove items~~
     + allow adding todo location (GMapsw with component)
-    + provide jest tests for Todo app components
+    + ~~provide jest tests for Todo app components~~
    
- * include enzyme unit tests
+ * ~~include enzyme unit tests~~
+ * include SCSS and use webpack to bundle it
+ * provide a backend to serve todo data
+ * research react app architectures
  * research server side rendering

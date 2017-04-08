@@ -8,14 +8,7 @@ class Todo extends React.Component {
         super(props);
 
         this.state = {
-            todos: props.todos || (() => {
-                return [1,2,3,4,5,6,7,8].map((number) => {
-                    return {
-                        name: `TodoItem ${number}`,
-                        status: TodoModel.STATUS_ACTIVE
-                    };
-                });
-            })()
+            todos: props.todos
         };
 
         this.onSubmit = this.onSubmit.bind(this);
@@ -24,7 +17,7 @@ class Todo extends React.Component {
     }
 
     onSubmit(value) {
-        var todos = this.state.todos.slice();
+        let todos = this.state.todos.slice();
 
         todos.push({
             name: value,

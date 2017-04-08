@@ -7,7 +7,8 @@
     "test": "./node_modules/.bin/jest",
     "dev": "./node_modules/.bin/webpack -d --watch",
     "build": "./node_modules/.bin/webpack -p",
-    "quality": "./node_modules/.bin/eslint src/client/app/**/* test/**/*"
+    "lint": "./node_modules/.bin/eslint src/client/app/**/* test/**/*",
+    "quality": "npm run lint && npm run test"
   },
   "author": "A simple application to familiarize myself with React and its development stack",
   "license": "ISC",

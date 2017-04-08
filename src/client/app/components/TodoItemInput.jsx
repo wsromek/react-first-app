@@ -4,7 +4,7 @@ class TodoItemInput extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            inputValue: props.value
+            inputValue: props.value || ''
         };
 
         this.updateInputValue = this.updateInputValue.bind(this);

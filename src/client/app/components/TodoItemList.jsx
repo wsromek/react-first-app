@@ -40,7 +40,7 @@ class TodoItemList extends React.Component {
                 <div className='todo-item-list'>
                     {this.props.todos.map(function (todoItem, index) {
                         if (filter === TodoModel.STATUS_ALL || filter === todoItem.status) {
-                            return <div key={index}>
+                            return <div key={index} className="todo-item-list-item">
                                 <input type="checkbox" onClick={() => changeItemState(index)} />
                                 <TodoItem item={todoItem} />
                                 <button onClick={() => removeItem(index)}>X</button>
@@ -48,9 +48,9 @@ class TodoItemList extends React.Component {
                         }
                     })}
                 </div>
-                <button onClick={() => this.filter(TodoModel.STATUS_ALL)}>Show All</button>
-                <button onClick={() => this.filter(TodoModel.STATUS_COMPLETED)}>Show Completed</button>
-                <button onClick={() => this.filter(TodoModel.STATUS_ACTIVE)}>Show Active</button>
+                <button id="todos-show-all-button" onClick={() => this.filter(TodoModel.STATUS_ALL)}>Show All</button>
+                <button id="todos-show-completed-button" onClick={() => this.filter(TodoModel.STATUS_COMPLETED)}>Show Completed</button>
+                <button id="todos-show-active-button" onClick={() => this.filter(TodoModel.STATUS_ACTIVE)}>Show Active</button>
             </div>
         );
     }
