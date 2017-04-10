@@ -45,12 +45,8 @@ class Todo extends React.Component {
     }
 
     onItemDelete(index) {
-        var todos = this.state.todos;
-
-        todos.splice(index, 1);
-
         this.setState({
-            todos: todos
+            todos: this.state.todos.filter((item, i) => {return index !== i})
         });
     }
 

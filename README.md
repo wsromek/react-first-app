@@ -27,7 +27,7 @@ This repository has been prepared to utilize Travis CI to deploy code to Heroku 
     + ~~provide jest tests for Todo app components~~
    
  * ~~include enzyme unit tests~~
- * include SCSS and use webpack to bundle it
+ * include SCSS + eCSS and use webpack to bundle it
  * provide a backend to serve todo data
  * research react app architectures
  * research server side rendering
