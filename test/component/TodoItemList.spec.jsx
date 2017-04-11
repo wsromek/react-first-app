@@ -30,7 +30,7 @@ describe('TodoItemList component', () => {
             expect(component.find(itemSelector).length).toBe(count);
         };
 
-        let component = mount(<TodoItemList todos={todos} filter={'compconsted'}/>);
+        let component = mount(<TodoItemList todos={todos} filter={'completed'}/>);
         expectElementsCount(1);
 
         component = mount(<TodoItemList todos={todos} filter={'active'}/>);
