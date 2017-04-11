@@ -1,7 +1,7 @@
 {
-  "name": "react-hello-world",
+  "name": "react-first-app",
   "version": "0.0.1",
-  "description": "",
+  "description": "A simple application to familiarize myself with React and its development stack",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/jest",
@@ -10,7 +10,7 @@
     "lint": "./node_modules/.bin/eslint src/client/app/**/* test/**/*",
     "quality": "npm run lint && npm run test"
   },
-  "author": "A simple application to familiarize myself with React and its development stack",
+  "author": "wojciech.sromek@gmail.com",
   "license": "ISC",
   "dependencies": {
     "express": "4.15.2"
