@@ -3,7 +3,7 @@ import Todo from '../../src/client/app/components/Todo.jsx';
 import {render, mount} from 'enzyme';
 
 describe('Todo component', () => {
-    let todos = [
+    const todos = [
         {
             status: 'active',
             name: 'test1'
@@ -19,7 +19,7 @@ describe('Todo component', () => {
     ];
 
     it('renders todo component', () => {
-        let component = render(<Todo todos={todos} />);
+        const component = render(<Todo todos={todos} />);
 
         expect(component.find('header').length).toBe(1);
         expect(component.find('section.main').length).toBe(1);
@@ -27,13 +27,13 @@ describe('Todo component', () => {
     });
 
     it('removes todo', () => {
-        let component = mount(<Todo todos={todos.slice()} />);
+        const component = mount(<Todo todos={todos.slice()} />);
 
-        let removeFirstItem = () => {
+        const removeFirstItem = () => {
             component.find('.view button').first().simulate('click');
         };
 
-        let expectElementsCount = (count) => {
+        const expectElementsCount = (count) => {
             expect(component.find('div.view').length).toBe(count);
         };
 
@@ -48,7 +48,7 @@ describe('Todo component', () => {
     });
 
     it('changes todo state', () => {
-        let component = mount(<Todo todos={todos.slice()} />);
+        const component = mount(<Todo todos={todos.slice()} />);
 
         component.find('.view input').first().simulate('change');
         expect(component.find('li.completed').length).toBe(2);
