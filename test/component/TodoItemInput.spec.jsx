@@ -5,25 +5,23 @@ import {shallow, mount} from 'enzyme';
 describe('TodoItemInput component', () => {
     it('renders input field', () => {
         let component = shallow(<TodoItemInput />);
-        expect(component.find('input#todo-submit-input').length).toBe(1);
-    });
-
-    it('renders submit button', () => {
-        let component = shallow(<TodoItemInput />);
-        expect(component.find('button#todo-submit-button').length).toBe(1);
+        expect(component.find('input.new-todo').length).toBe(1);
     });
 
     it('sets input field value when it is passed', () => {
         let component = shallow(<TodoItemInput value='test-value'/>);
 
-        expect(component.find('input#todo-submit-input').props().value).toBe('test-value');
+        expect(component.find('input.new-todo').props().value).toBe('test-value');
     });
 
-    it('calls onTodoSubmit when submit button is clicked', () => {
+    it('calls onTodoSubmit when input is filled and enter is clicked', () => {
+        const ENTER_KEY = 13;
         let onTodoSubmitMock = jest.fn();
         let component = mount(<TodoItemInput onSubmit={onTodoSubmitMock} value="test-value"/>);
 
-        component.find('button').simulate('click');
+        component.find('input').simulate('keyup', {
+            keyCode: ENTER_KEY
+        });
 
         expect(onTodoSubmitMock).toHaveBeenCalledWith('test-value');
     });

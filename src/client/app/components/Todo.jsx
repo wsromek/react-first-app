@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoItemList from './TodoItemList.jsx';
+import TodoFooter from './TodoFooter.jsx';
 import TodoItemInput from './TodoItemInput.jsx';
 import TodoModel from '../model/Todo.model.jsx';
 
@@ -8,15 +9,12 @@ class Todo extends React.Component {
         super(props);
 
         this.state = {
-            todos: props.todos
+            todos: props.todos,
+            filter: TodoModel.STATUS_ALL
         };
-
-        this.onSubmit = this.onSubmit.bind(this);
-        this.onItemDelete = this.onItemDelete.bind(this);
-        this.onItemStateChange = this.onItemStateChange.bind(this);
     }
 
-    onSubmit(value) {
+    onSubmit = (value) => {
         let todos = this.state.todos.slice();
 
         todos.push({
@@ -27,9 +25,9 @@ class Todo extends React.Component {
         this.setState({
             todos: todos
         });
-    }
+    };
 
-    onItemStateChange(index) {
+    onItemStateChange = (index) => {
         let todos = this.state.todos.slice();
         let currentItem = todos[index];
 
@@ -42,24 +40,44 @@ class Todo extends React.Component {
         this.setState({
             todos: todos
         });
-    }
+    };
 
-    onItemDelete(index) {
+    onItemDelete = (index) => {
         this.setState({
-            todos: this.state.todos.filter((item, i) => {return index !== i})
+            todos: this.state.todos.filter((item, i) => {
+                return index !== i;
+            })
         });
-    }
+    };
+
+    onFilterChange = (filter) => {
+        this.setState({
+            filter: filter
+        });
+    };
+
+    getActiveTodosCount = () => {
+        return this.state.todos.reduce((prevVal, item) => {
+            return prevVal += item.status === TodoModel.STATUS_ACTIVE ? 1 : 0;
+        }, 0);
+    };
 
     render() {
         return (
-            <div className='todo-wrapper'>
-                <TodoItemInput onSubmit={this.onSubmit} />
+            <section className="todoapp">
+                <TodoItemInput onSubmit={this.onSubmit}/>
                 <TodoItemList
                     onItemStateChange={this.onItemStateChange}
                     onItemDelete={this.onItemDelete}
                     todos={this.state.todos}
+                    filter={this.state.filter}
                 />
-            </div>
+                <TodoFooter
+                    onFilterChange={this.onFilterChange}
+                    todosCount={this.getActiveTodosCount()}
+                    filter={this.state.filter}
+                />
+            </section>
         );
     }
 }

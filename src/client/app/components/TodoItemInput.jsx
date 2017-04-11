@@ -1,38 +1,39 @@
 import React from 'react';
 
+const ENTER_KEY = 13;
+
 class TodoItemInput extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             inputValue: props.value || ''
         };
-
-        this.updateInputValue = this.updateInputValue.bind(this);
-        this.onTodoSubmit = this.onTodoSubmit.bind(this);
     }
 
-    updateInputValue(event) {
+    updateInputValue = (event) => {
         this.setState({
             inputValue: event.target.value
         });
-    }
+    };
 
-    onTodoSubmit() {
-        this.props.onSubmit(this.state.inputValue);
-    }
+    checkIfEnter = (event) => {
+        if (event.keyCode === ENTER_KEY) {
+            this.props.onSubmit(this.state.inputValue);
+        }
+    };
 
     render() {
         return (
-            <div className="todo-submit-wrapper">
-                <input id="todo-submit-input"
+            <header className="header">
+                <h1>todos</h1>
+                <input className="new-todo"
+                       placeholder="What needs to be done?"
                        type="text"
                        value={this.props.value}
                        onChange={this.updateInputValue}
+                       onKeyUp={this.checkIfEnter}
                 />
-                <button id="todo-submit-button"
-                        onClick={this.onTodoSubmit}
-                >Submit</button>
-            </div>
+            </header>
         );
     }
 }

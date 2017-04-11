@@ -3,7 +3,7 @@ import TodoItemList from '../../src/client/app/components/TodoItemList.jsx';
 import {mount, render} from 'enzyme';
 
 describe('TodoItemList component', () => {
-    let itemSelector = '.todo-item-list-item';
+    let itemSelector = '.view';
 
     let todos = [
         {
@@ -22,39 +22,30 @@ describe('TodoItemList component', () => {
 
     it('renders list of todo items', () => {
         let component = render(<TodoItemList todos={todos} />);
-
         expect(component.find(itemSelector).length).toBe(3);
     });
 
     it('renders list of todo items based on filter', () => {
-        let component = mount(<TodoItemList todos={todos} />);
-
-        let changeVisibleStateTo = (state) => {
-            component.find(`button#todos-show-${state}-button`).simulate('click');
-        };
-
         let expectElementsCount = (count) => {
             expect(component.find(itemSelector).length).toBe(count);
         };
 
-        expectElementsCount(3);
-
-        changeVisibleStateTo('completed');
+        let component = mount(<TodoItemList todos={todos} filter={'completed'}/>);
         expectElementsCount(1);
 
-        changeVisibleStateTo('active');
+        component = mount(<TodoItemList todos={todos} filter={'active'}/>);
         expectElementsCount(2);
 
-        changeVisibleStateTo('all');
+        component = mount(<TodoItemList todos={todos} filter={'all'}/>);
         expectElementsCount(3);
     });
 
     it('calls onItemStateChange on checkbox click', () => {
         let stateChangeMock = jest.fn();
         let component = mount(<TodoItemList todos={todos} onItemStateChange={stateChangeMock} />);
-        let completedTodo = component.find(itemSelector).first();
+        let completedTodo = component.find('.view').first();
 
-        completedTodo.find('input').simulate('click');
+        completedTodo.find('input').simulate('change');
 
         expect(stateChangeMock).toHaveBeenCalledWith(0);
     });
@@ -63,7 +54,7 @@ describe('TodoItemList component', () => {
         let lastItemIndex = 2;
         let removeItemMock = jest.fn();
         let component = mount(<TodoItemList todos={todos} onItemDelete={removeItemMock} />);
-        let completedTodo = component.find(itemSelector).last();
+        let completedTodo = component.find('.view').last();
 
         completedTodo.find('button').simulate('click');
 
